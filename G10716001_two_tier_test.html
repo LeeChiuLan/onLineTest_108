@@ -57,24 +57,50 @@
 	// q3.
 	
 	var TOTAL_QUESTION_ITEMS = 2; //選取10題
-    var answer = [2, 1, 4];
+	var COUNTDOWN = 100;
+	var MAX_ARRAY_NUMBER = TOTAL_QUESTION_ITEMS;
+    //var answer = [2, 1, 4];
     var pn = 0,
         cans = 0;
-    var rec = [0, 0, 0];
+    var rec = new Array(MAX_ARRAY_NUMBER);
     var close = ['s1', 's2', 's3', 's4', 'c1'];
     var second_close = ['ss1', 'ss2', 'ss3', 'ss4']
 
+    function getQuiz() {
+        // initial   // clear score[]
+        for (var i = 0; i < MAX_ARRAY_NUMBER; i++) {
+            rec[i] = 0;
+        }
+	}
+	
     function report() {
         window.document.getElementById('score').innerHTML = 'score:<font color=red>' + sc + '分<font>';
     }
 
+	function radioCheck_OK(){
+		var value=null;
+		
+		var radios = document.querySelectorAll('input[type="radio"]:checked');
+		if(radios.length>0) value=radios[0].value;
+		
+        var x = document.getElementById("secondquest");
+        if (x.style.display === "block") {
+			value = 1;
+		}
+		return value;
+	}
     function check() { //1st-tier
+		if(!radioCheck_OK()) {
+			document.getElementById('misconcept').innerHTML = '<font color=red>請選答 !</font><br>'
+			return;
+		}
         togglesecond();
         var lock = 'item' + cans;
         document.getElementById(lock).style.color = "red";
         for (var w = 0; w <= 4; w++)
             document.getElementById(close[w]).disabled = true;
         shprob_2();
+		document.getElementById('misconcept').innerHTML = '';
     }
 
     function check2() { //2nd-tier
@@ -109,6 +135,14 @@
     }
 
     function suggest() {
+		if(!radioCheck_OK()) {
+			document.getElementById('misconcept').innerHTML = '<font color=red>請選答 !</font><br>'
+			return;
+		}
+		if (COUNTDOWN > 0) {
+			document.getElementById('misconcept').innerHTML = '<font color=red>目前答題中</font><br>'
+			return;
+		}
         var bug = '';
         var allpass = '<font color=blue>You are excellent!</font>';
         for (var i = 0; i < TOTAL_QUESTION_ITEMS; i++){
@@ -143,7 +177,7 @@
 
 </script>
 
-<body onload="shprob();">
+<body onload="getQuiz();shprob();">
     知識大挑戰
     <hr>
     <table border>
