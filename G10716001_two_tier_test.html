@@ -56,6 +56,7 @@
     twotierQ[41] = "D.未顯示人數（n）";
 	// q3.
 	
+	var TOTAL_QUESTION_ITEMS = 2; //選取10題
     var answer = [2, 1, 4];
     var pn = 0,
         cans = 0;
@@ -110,8 +111,9 @@
     function suggest() {
         var bug = '';
         var allpass = '<font color=blue>You are excellent!</font>';
-        for (var i = 0; i <= rec.length - 1; i++)
-            if (rec[i] == 0) bug = bug + "第" + i + "題<font color=red>" + problem[i] + "</font>答錯<br>";
+        for (var i = 0; i < TOTAL_QUESTION_ITEMS; i++){
+				if (rec[i] == 0) bug = bug + "第" + (i+1) + "題<font color=red>" + twotierQ[i*21] + "</font>答錯<br>";
+			}
         if (bug == '')
             document.getElementById('misconcept').innerHTML = allpass;
         else
@@ -126,6 +128,8 @@
         cans = 0;
         report();
         shprob();
+		document.getElementById('show1').innerHTML = '';
+		window.document.getElementById('score').innerHTML = 'score:0';
     }
 
     function togglesecond() { //show or hide
