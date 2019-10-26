@@ -1,0 +1,255 @@
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #d8da3d;
+        }
+        
+        input[type="radio"] {
+            -ms-transform: scale(1.5);
+            /* IE 9 */
+            -webkit-transform: scale(1.5);
+            /* Chrome, Safari, Opera */
+            transform: scale(1.5);
+        }
+        
+        div.fontA {
+            font-size: xx-large;
+        }
+        
+        table {
+            font-size: 16px;
+        }
+        
+        table.fixed {
+            table-layout: fixed;
+        }
+        
+        table.fixed td {
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<script>
+    var no = 0;
+    // part - #1
+    var qString1 = "那個惡意軟體會開啟被遠端主機控制的應用程式?#那個惡意軟體會在你不知情下就安裝完成?#癱瘓網站何者為是?#何者是DDoS?#下列何者可以取得管理者帳號密碼?#某網站貼出公告[網頁遭惡意攻擊課程資料庫損毀目前搶修中不便之處敬請見諒],這是遭受什麼樣的資安攻擊?#下列何者會提高被惡意軟體攻擊的風險?#那個行為可以防範資安危險?#駭客網路入侵模式,那個行為可以防範[弱點刺探]?#行動裝置何者徵兆有惡意軟體入侵?";
+
+    var selString1 = "木馬程式,後門程式,電腦蠕蟲,釣魚郵件,釣魚郵件,釣魚網站,安裝套件軟體,以上皆是,對於SQL伺服器做破壞攻擊,發動大量攻擊封包,植入電腦病毒,竊取大量資料,指被藉機勒索,一旦參觀網站就會被攻擊或被感染惡意程式,機密資料會被網路罪犯偷走,癱瘓網站,隱碼攻擊,側錄與竊聽,勒索病毒,釣魚郵件,電腦蠕蟲,勒索病毒,SQL Injection攻擊,癱瘓網站攻擊,安裝即時軟體,安裝P2P軟體,安裝防毒軟體,安裝系統更新軟體,禁止使用USB隨身碟,瀏覽高風險的網站,禁止使用即時軟體,以上皆非,勿使用P2P軟體,謹慎開啟信件附加檔案,定期更新修補弱點,安裝防火牆,通話經常不尋常中斷,電信費用異常,行動裝置效能變差,以上皆是";
+
+    var suggestString1 = "駭客後門程式通常是使用主從式架構,一般Server端會常駐於被害者的電腦提供入侵管道#受害者在不知情狀況下下載或安裝了惡意程式,或點選了釣魚郵件,釣魚網站而遭駭客入侵#(1)發動大量封包造成網頁頻寬滿載,網頁速度變慢 (2)發動分散式阻斷服務攻擊DDoS (3)針對通訊協定及特定應用弱點,讓系統服務終止.#駭客發動分散式阻斷服務攻擊(DDoS)癱瘓網站.#隱碼攻擊(SQL injection):利用輸入特殊SQL程式碼,資料庫資料被竊取或是被破壞,系統管理員帳戶被竊竄.#隱碼攻擊(SQL injection):利用輸入特殊SQL程式碼,資料庫資料被竊取或是被破壞,系統管理員帳戶被竊竄.#資訊安全防護:安裝防毒軟體、防火牆,禁止使用USB隨身碟,禁止使用P2P軟體,謹慎開啟信件附加檔案,不瀏覽高風險的網站,定期更新修補弱點#資訊安全防護:安裝防毒軟體、防火牆,禁止使用USB隨身碟,禁止使用P2P軟體,謹慎開啟信件附加檔案,不瀏覽高風險的網站,定期更新修補弱點#資訊安全防護:安裝防毒軟體、防火牆,禁止使用USB隨身碟,禁止使用P2P軟體,謹慎開啟信件附加檔案,不瀏覽高風險的網站,定期更新修補弱點#行動裝置資安威脅徵兆:(1)電池壽命變短 (2)通話經常不尋常中斷 (3)電信費用異常 (4)手機效能變差"
+    var ans1 = [1, 3, 1, 3, 0, 2, 1, 0, 2, 3];
+    suggestString1 = qString1; // 20191021: Q & A
+
+    // part - #2
+    var qString2 = "關於「電腦病毒」的描述,以下何者正確?#下列何者為惡意軟體的特徵?#「表面看起來包含了有用或好的功能,實際上卻是暗地作壞事的程式」,是指何者惡意軟體之特性?#「專門記錄所有自鍵盤輸入的字元,並存入紀錄檔中的程式」,是指何者惡意軟體之特性?#以下何者惡意軟體為感染與攻擊之媒介?#資安公告中的「零時差」是何意思?#感染後會自動複製,並搜尋網路上其他電腦,進而侵入感染的惡意軟體是何?#特權工具的侵入方式是?#以下何種惡意軟體,可直接取的使用者的網路銀行帳號密碼?#若電腦遭惡意軟體感染,處理流程第一步驟是?";
+    var selString2 = "不會自我複製,感染時不會被發現,有特定的目的,可能包括惡意程式碼,多功能且模擬化,易取得且容易使用,透過網路大量傳播,以上皆是,間諜軟體,木馬程式,特權工具,電腦蠕蟲,間諜軟體,鍵盤側錄,特權工具,電腦蠕蟲,電子郵件,USB隨身碟,無線網路,以上皆是,公告的同時-惡意軟體已出現,公告的同時-以進行安全性更新,公告的同時-系統漏洞會不斷擴大,公告的同時-即可暫緩處理,間諜軟體,木馬程式,特權工具,電腦蠕蟲,透過系統漏洞進行感染,微調既有的應用程式.讓使用者進行安裝,負載滑鼠的驅動程式.讓使用者進行安裝,藏在某些網頁中.使用者在瀏覽時進行安裝,鍵盤側錄,電腦蠕蟲,電腦病毒,以上皆是,系統修復,確認是否真的受感染,分析惡意軟體,資安事件回應";
+    var suggestString2 = qString2;
+    var ans2 = [3, 3, 1, 1, 3, 0, 3, 1, 0, 1];
+
+    var TOTAL_QUESTION_ITEMS = 10; //選取10題
+    var RANGE_NUMBER = 20; //20個題庫
+    var MAX_ARRAY_NUMBER = 50;
+    var R = new Array(MAX_ARRAY_NUMBER);
+    // ===================================
+    var qString = qString1 + "#" + qString2;
+    var selString = selString1 + "," + selString2;
+    var suggestString = suggestString1 + "#" + suggestString2;
+    var quest = qString.split("#");
+    var sItems = selString.split(",");
+    var suggestItems = suggestString.split("#");
+    var ans = ans1.concat(ans2);
+    var index = 0;
+
+    var COUNTDOWN = 100;
+    var userAns = 0;
+    var sc = 0;
+    var score = new Array(MAX_ARRAY_NUMBER);
+    //var num_passed = 0;
+    error = '';
+
+    function getQuiz(range) {
+        var t, num;
+
+        // initial   // clear score[]
+        for (var i = 0; i < MAX_ARRAY_NUMBER; i++) {
+            R[i] = i;
+            score[i] = 0;
+        }
+
+        for (var i = 0; i < range; i++) {
+            num = Math.floor(Math.random() * range);
+            t = R[i];
+            R[i] = R[num];
+            R[num] = t;
+        }
+        /*
+                // show
+                var content = "";
+                for (var i = 0; i < range; i++) {
+                    content += R[i] + ",";
+                }
+                alert(content);
+        */
+        no = R[0];
+    }
+
+    function conditionCheck() {
+        if (index < TOTAL_QUESTION_ITEMS - 1) {
+            no = R[++index];
+            genp();
+        }
+    }
+
+    function genp() {
+        document.getElementById('quest1').innerHTML = (index + 1).toString() + ". " + no + quest[no];
+        document.getElementById('sel0').innerHTML = sItems[no * 4 + 0];
+        document.getElementById('sel1').innerHTML = sItems[no * 4 + 1];
+        document.getElementById('sel2').innerHTML = sItems[no * 4 + 2];
+        document.getElementById('sel3').innerHTML = sItems[no * 4 + 3];
+
+        userAns = -1; // clear
+        document.getElementById('s0').checked = false;
+        document.getElementById('s1').checked = false;
+        document.getElementById('s2').checked = false;
+        document.getElementById('s3').checked = false;
+    }
+
+    function score_sumup() {
+        sc = score.reduce((a, b) => a + b);
+        return sc >= TOTAL_QUESTION_ITEMS ? 100 : 0;
+    }
+
+    function reset() {
+        msg = "";
+        document.getElementById('feedback').innerHTML = msg;
+        error = "";
+        document.getElementById('suggest1').innerHTML = '<font color=blue size=6>' + error + '</font>';
+    }
+
+    function check() {
+        reset();
+        var msg = "";
+        if (userAns == ans[no]) {
+            msg = "Correct!!";
+            score[no] = 1;
+        } else {
+            msg = "InCorrect!!";
+            score[no] = 0;
+        }
+        document.getElementById('feedback').innerHTML = msg;
+        score_sumup();
+        document.getElementById('sc').innerHTML = '<font size=6>Score: </font><font color=red size=6>' + sc + '分</font>';
+
+    }
+
+    function suggest() {
+        if (COUNTDOWN > 0) {
+            error = "目前答題中<br>";
+            //error += score[no] == 0 ? (no + 1) + ". " + suggestItems[no] + "<br>" : "答對了";
+        } else { // display all after timeout
+            error = "";
+            for (var i = 0; i < TOTAL_QUESTION_ITEMS; i++) {
+                //error += (score[R[i]] == 0 ? "題目" + (i + 1) + ". "+R[i] + suggestItems[R[i]] + "<br>" : "");
+                tmp_txt = "&nbsp;&nbsp;&nbsp;&nbsp;<font color=red>" + sItems[R[i] * 4 + ans[R[i]]] + "</font><br>";
+
+                error += (score[R[i]] == 0 ? "題目" + (i + 1) + ". " + R[i] + suggestItems[R[i]] + tmp_txt + "<br>" : "");
+
+
+            };
+            if (score_sumup() == 100) error = "全部答對了"
+        }
+        document.getElementById('suggest1').innerHTML = '<font color=blue size=6>' + error + '</font>';
+    }
+
+    function begintime() {
+        count = COUNTDOWN + 1;
+        timer1 = setInterval(showtime, 1000);
+    }
+
+
+    function timestop1() {
+        clearInterval(timer1);
+        document.getElementById('next').disabled = true;
+        document.getElementById('check').disabled = true;
+        COUNTDOWN = -1; // Timeout
+
+        score_sumup();
+        document.getElementById('sc').innerHTML = '<font size=6>Score: </font><font color=red size=6>' + sc + '分</font>';
+    }
+
+    function showtime() {
+        count--;
+        document.getElementById('time1').innerHTML = '<font color=red>' + count + '秒</font>';
+        if (count == 0) {
+            timestop1();
+        }
+    }
+
+</script>
+
+<body onload='getQuiz(RANGE_NUMBER);begintime();genp();'>
+    <div class='fontA'>
+        <table class="fixed" border="1" style="font-size:30px; border:2px #00DBDB solid;">
+
+            <col width="800px" />
+            <col width="80px" />
+            <thead>
+                <tr>
+                    <th>資訊安全 [主題] - 惡意軟體</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>測驗倒數計時&nbsp;&nbsp;<span id='time1'>100秒</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><span id='quest1'></span></td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td><input type=radio name=prob1 id='s0' onclick="userAns=0;"><span id='sel0'>0</span></td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td><input type=radio name=prob1 id='s1' onclick="userAns=1;"><span id='sel1'>1</span></td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td><input type=radio name=prob1 id='s2' onclick="userAns=2;"><span id='sel2'>2</span></td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td><input type=radio name=prob1 id='s3' onclick="userAns=3;"><span id='sel3'>3</span></td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;<button onclick="check();" id='check' style="font-size: .25in; font-weight: bold; color: #0000FF">答&nbsp;&nbsp;題</button>&nbsp;&nbsp;
+                        <button onclick="conditionCheck();reset();genp();" id='next' style="font-size: .25in; font-weight: bold; color: #FF0000">下一題</button>
+
+                    </td>
+                    <td> <button onclick="timestop1();" style="font-size: .25in;">結束測驗</button> </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p id=feedback></p>
+                    </td>
+                    <td> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <p id='sc'> </p>
+    <button onclick="suggest();" style="font-size: .25in; font-weight: bold; color: #FF0000">suggest</button>
+    <p id='suggest1'> </p>
+</body>
+
+</html>
