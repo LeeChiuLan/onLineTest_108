@@ -200,7 +200,7 @@
         cans = 0;
     var rec = new Array(MAX_ARRAY_NUMBER);
     var close = ['s1', 's2', 's3', 's4', 'c1'];
-    var second_close = ['ss1', 'ss2', 'ss3', 'ss4']
+    var second_close = ['ss1', 'ss2', 'ss3', 'ss4', 'c2']
 
     function getQuiz() {
         // initial   // clear score[]
@@ -215,7 +215,7 @@
     }
 	
     function report() {
-        window.document.getElementById('score').innerHTML = 'score:<font color=red>' + sc + '分<font>';
+        window.document.getElementById('score').innerHTML = 'Score:<font color=red>' + sc + '分<font>';
     }
 
 	function radioCheck_OK(){
@@ -244,6 +244,9 @@
 		document.getElementById('misconcept').innerHTML = '';
     }
 
+	function gameover(){
+	}
+	
     function check2() { //2nd-tier
         //togglesecond();
         var msg = "",
@@ -262,6 +265,7 @@
 			pn++;
 		}else{
 			document.getElementById('misconcept').innerHTML = '<font color=blue>已為最後一題, 測驗結束 .</font><br>';
+			gameover();
 			return;
 		}
         togglesecond()
@@ -329,8 +333,6 @@
 
 <body onload="getQuiz();shprob();">
 <div class='fontA'>
-    知識大挑戰
-    <hr>
     <table border="1" style="font-size:24px; border:2px #00DBDB solid;">
         <tr>
             <td>
@@ -348,11 +350,11 @@
                     <input type=radio name=q2 onclick='cans2=2;' id='ss2'><span id='sitem2'></span><br>
                     <input type=radio name=q2 onclick='cans2=3;' id='ss3'><span id='sitem3'></span><br>
                     <input type=radio name=q2 onclick='cans2=4;' id='ss4'><span id='sitem4'></span><br><br>
-                    <button onclick="check2();" style="font-size: .25in; font-weight: bold; color: #0000FF">check answer(2nd-tier)</button>
+                    <button onclick="check2();" id='c2' style="font-size: .25in; font-weight: bold; color: #0000FF">check answer(2nd-tier)</button>
                 </div>
             </td>
     </table>
-    <p id='score'> score:0</p>
+    <p id='score'> Score:0</p>
     <p id='show1'> </p>
     <button onclick='suggest();' style="font-size: .25in; font-weight: bold; color: #FF0000">learning diagnosis</button>
     <p id='misconcept'> </p>
