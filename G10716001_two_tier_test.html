@@ -2,9 +2,9 @@
 <script>
     var sc = 0,
         x1;
-    var firstans = [1, 4]; //firstans[pn]==cans
+    var firstans = [1, 1, 1, 3, 2, 2]; //firstans[pn]==cans
     var secondans = [2, 3]; //secondans[pn]==cans2
-    var rec = [0, 0];
+
     var twotierQ = [];
 	// q1.
     twotierQ[0] = "關於電腦病毒下列何者是正確？";
@@ -29,34 +29,137 @@
     twotierQ[19] = "4C.因為病毒是以破壞資料為樂趣";
     twotierQ[20] = "4D.因為資料被影響，不易復原";
 	// q2.
-    twotierQ[21] = "F成績(如聯考成績)與S成績(如在學成績)的Pearson r=.506，p=.03，下列何者最正確？"; // question 2
-    twotierQ[22] = "A.F為造成S之因";
-    twotierQ[23] = "B.S是F造成之果";
-    twotierQ[24] = "C.F與S相關性不足";
-    twotierQ[25] = "D.F與S二者有中度正相關性";
-
-    twotierQ[26] = "A.達顯著中度相關，能推論因果關係";
-    twotierQ[27] = "B.p<.05，已達顯著水準，F為造成S之顯著原因";
-    twotierQ[28] = "C.0.8<r<0.4代表中度正相關，F為造成S之中度因素";
-    twotierQ[29] = "D.F為造成S之因，其解釋力約為25%";
-
-    twotierQ[30] = "A.達顯著正相關，能推論因果關係";
-    twotierQ[31] = "B.p<.05，已達顯著水準，S是F造成之果";
-    twotierQ[32] = "C.0.8<r<0.4代表中度正相關，S是F造成之中度結果";
-    twotierQ[33] = "D.S是F造成之果，其解釋力約為25%";
-
-    twotierQ[34] = "A.因r=.506，達中度相關";
-    twotierQ[35] = "B.因p<.05，達顯著水準";
-    twotierQ[36] = "C.正相關所以可以推論正向因果關係";
-    twotierQ[37] = "D.因中度且顯著，所以可推論正向因果關係";
-
-    twotierQ[38] = "A.r值太低";
-    twotierQ[39] = "B.p未達.001";
-    twotierQ[40] = "C.p未達.01";
-    twotierQ[41] = "D.未顯示人數（n）";
+    twotierQ[21] = "那個惡意軟體會開啟被遠端主機控制的應用程式?"; // question 2
+    twotierQ[22] = "A.木馬程式";
+    twotierQ[23] = "B.後門程式";
+    twotierQ[24] = "C.電腦蠕蟲";
+    twotierQ[25] = "D.釣魚郵件";
+	// [木馬程式] 0
+    twotierQ[26] = "A.隱藏於看似正常檔案的惡意軟體";
+    twotierQ[27] = "B.執行攻擊的程式";
+    twotierQ[28] = "C.透過電腦後門入侵";
+    twotierQ[29] = "D.會自我複製";
+	// [後門程式]  0
+    twotierQ[30] = "A.一般Server端會常駐於被害者的電腦提供入侵管道";
+    twotierQ[31] = "B.是管理者使用的遠端管理程式";
+    twotierQ[32] = "C.大多數是藉由類似病毒感染的方式傳遞";
+    twotierQ[33] = "D.駭客用的下載媒介";
+	// [電腦蠕蟲] 0
+    twotierQ[34] = "A.會透過電腦漏洞感染";
+    twotierQ[35] = "B.執行攻擊的程式";
+    twotierQ[36] = "C.不同於病毒不會自我複製";
+    twotierQ[37] = "D.以上皆是";
+	// [釣魚郵件] 1
+    twotierQ[38] = "A.會透過電腦後門入侵";
+    twotierQ[39] = "B.誘騙進入假網站";
+    twotierQ[40] = "C.竊取使用者帳號密碼";
+    twotierQ[41] = "D.未執行攻擊的程式";
 	// q3.
+    twotierQ[42] = "癱瘓網站何者為是?";
+    twotierQ[43] = "A.對於SQL伺服器做破壞攻擊";
+    twotierQ[44] = "B.發動大量攻擊封包";
+    twotierQ[45] = "C.植入電腦病毒";
+    twotierQ[46] = "D.社交網路釣魚攻擊";
+	// [對於SQL伺服器做破壞攻擊] 2
+    twotierQ[47] = "A.SQL伺服器是前端服務";
+    twotierQ[48] = "B.使之無法透過SQL伺服器存取網頁資料";
+    twotierQ[49] = "C.平時要有備份";
+    twotierQ[50] = "D.以上皆是";
+	// [發動大量攻擊封包] 2
+    twotierQ[51] = "A.大量電腦資料被竊取";
+    twotierQ[52] = "B.通常發生在個人電腦";
+    twotierQ[53] = "C.分散式阻斷服務(DDoS)攻擊";
+    twotierQ[54] = "D.以上皆是";
+	// [植入電腦病毒] 2
+    twotierQ[55] = "A.受電腦病毒以致癱瘓";
+    twotierQ[56] = "B.通常發生在個人電腦";
+    twotierQ[57] = "C.發動中毒的網路設備向受害網站攻擊";
+    twotierQ[58] = "D.以上皆是";
+	// [社交網路釣魚攻擊] 2
+    twotierQ[59] = "A.受網路釣魚攻擊以致網站癱瘓";
+    twotierQ[60] = "B.指大量電腦資料被竊取";
+    twotierQ[61] = "C.以欺騙手法將惡意程式植入";
+    twotierQ[62] = "D.以上皆是";
+	// q4.
+    twotierQ[63] = "何者是DDoS?";
+    twotierQ[64] = "A.指被藉機勒索 denial-of-access attack";
+    twotierQ[65] = "B.一旦參觀網站就會被攻擊或被感染惡意程式";
+    twotierQ[66] = "C.SQL Injection攻擊";
+    twotierQ[67] = "D.癱瘓網站";
+	// [指被藉機勒索 denial-of-access attack] 0
+    twotierQ[68] = "A.將受害者的電腦鎖起來要求受害者繳納贖金以取回對電腦的控制權";
+    twotierQ[69] = "B.勒索使用者的網路銀行帳號密碼";
+    twotierQ[70] = "C.竊取大量資料";
+    twotierQ[71] = "D.以上皆是";
+	// [一旦參觀網站就會被攻擊或被感染惡意程式] 3
+    twotierQ[72] = "A.屬於社交網路釣魚攻擊";
+    twotierQ[73] = "B.駭客企圖竊取個人資料";
+    twotierQ[74] = "C.提高警覺不連結及登入未經確認的網站";
+    twotierQ[75] = "D.以上皆是";
+	// [SQL Injection攻擊] 1
+    twotierQ[76] = "A.通常發生在個人電腦";
+    twotierQ[77] = "B.駭客自動掃描並嘗試各種SQL的漏洞來攻擊";
+    twotierQ[78] = "C.不連結及登入未經確認的網站,就可以避免攻擊";
+    twotierQ[79] = "D.以上皆是";
+	// [癱瘓網站] 3
+    twotierQ[80] = "A.定期對網站做弱點掃描滲透及演練防禦方案";
+    twotierQ[81] = "B.分散式阻斷服務(Distributed Denial of Service)";
+    twotierQ[82] = "C.發出大量合法或偽造之請求封包,占用大量網路及設備資源,以達到癱瘓攻擊";
+    twotierQ[83] = "D.以上皆是";
+	// q5.
+    twotierQ[84] = "某網站貼出公告[網頁遭惡意攻擊課程資料庫損毀目前搶修中不便之處敬請見諒],這是遭受什麼樣的資安攻擊?";
+    twotierQ[85] = "A.電腦蠕蟲";
+    twotierQ[86] = "B.木馬程式";
+    twotierQ[87] = "C.SQL Injection攻擊";
+    twotierQ[88] = "D.癱瘓網站攻擊";
+	// [電腦蠕蟲] 1
+    twotierQ[89] = "A.要執行被感染的程式才有傳播的能力";
+    twotierQ[90] = "B.消耗大量的系統記憶體或網路頻寬,導致網頁伺服器網路伺服器和電腦停止回應";
+    twotierQ[91] = "C.是電腦病毒";
+    twotierQ[92] = "D.以上皆是";
+	// [木馬程式] 2
+    twotierQ[93] = "A.是電腦病毒";
+    twotierQ[94] = "B.會自行複製傳播";
+    twotierQ[95] = "C.像正常應用程式用來入侵您的系統,並且讓駭客遠端控制您的電腦";
+    twotierQ[96] = "D.以上皆非";
+	// [SQL Injection攻擊] 2
+    twotierQ[97] = "A.進行計算雜湊函數值判斷";
+    twotierQ[98] = "B.採用HTTPS安全連線防護";
+    twotierQ[99] = "C.採用ModSecurity防火牆對SQL指令進行過濾動作來防範惡意攻擊";
+    twotierQ[100] = "D.以上皆是";
+	// [癱瘓網站攻擊] 3
+    twotierQ[101] = "A.遭遇時將攻擊導入流量清洗中心因應";
+    twotierQ[102] = "B.攻擊目的是讓主機的網路及所提供的服務停止";
+    twotierQ[103] = "C.DDoS攻擊封包會假造來源IP擾亂追查";
+    twotierQ[104] = "D.以上皆是";
+	// q6.
+    twotierQ[105] = "駭客網路入侵模式,那個行為可以防範[弱點刺探]?";
+    twotierQ[106] = "A.勿使用P2P軟體";
+    twotierQ[107] = "B.謹慎開啟信件附加檔案";
+    twotierQ[108] = "C.定期更新修補弱點";
+    twotierQ[109] = "D.安裝防火牆";
+	// [勿使用P2P軟體] 0
+    twotierQ[110] = "A.P2P軟體會開放弱點容易入侵";
+    twotierQ[111] = "B.可以防止資料被竊取";
+    twotierQ[112] = "C.P2P軟體下載未經合法授權著作";
+    twotierQ[113] = "D.以上皆是";
+	// [謹慎開啟信件附加檔案] 3
+    twotierQ[114] = "A.會執行附加檔造成感染";
+    twotierQ[115] = "B.可以阻擋入侵到系統弱點";
+    twotierQ[116] = "C.郵件附加檔案能被植入惡意程式";
+    twotierQ[117] = "D.以上皆是";
+	// [定期更新修補弱點] 4
+    twotierQ[118] = "A.即時更新作業系統及應用程式之修補程式";
+    twotierQ[119] = "B.隨時都有新的零時差漏洞";
+    twotierQ[120] = "C.駭客攻擊事件層出不窮,定期修補漏洞弱點,確保資訊安全.";
+    twotierQ[121] = "D.以上皆是";
+	// [安裝防火牆] 0
+    twotierQ[122] = "A.安裝防火牆可以阻擋入侵到系統弱點";
+    twotierQ[123] = "B.安裝防火牆可以修復系統弱點";
+    twotierQ[124] = "C.防火牆可以清除電腦病毒";
+    twotierQ[125] = "D.以上皆非";
 	
-	var TOTAL_QUESTION_ITEMS = 2; //選取10題
+	var TOTAL_QUESTION_ITEMS = 6; //選取10題
 	var COUNTDOWN = 100;
 	var MAX_ARRAY_NUMBER = TOTAL_QUESTION_ITEMS;
     //var answer = [2, 1, 4];
@@ -209,8 +312,8 @@
     <button onclick="retest();">重新挑戰</button>
     <script>
         function shprob() {
-            if (pn < 2) {
-                document.getElementById('voc').innerHTML = twotierQ[pn * 21 + 0];
+            if (pn < TOTAL_QUESTION_ITEMS) {
+                document.getElementById('voc').innerHTML = (pn + 1).toString() + ". " +twotierQ[pn * 21 + 0];
                 document.getElementById('item1').innerHTML = twotierQ[pn * 21 + 1];
                 document.getElementById('item2').innerHTML = twotierQ[pn * 21 + 2];
                 document.getElementById('item3').innerHTML = twotierQ[pn * 21 + 3];
@@ -219,7 +322,7 @@
         } //shprob()
 
         function shprob_2() {
-            if (pn < 2) { //cans
+            if (pn < TOTAL_QUESTION_ITEMS) { //cans
                 document.getElementById('secq').innerHTML = twotierQ[pn * 21 + cans];
                 document.getElementById('sitem1').innerHTML = twotierQ[pn * 21 + cans * 4 + 1]; //cans==1, pn*20+cans*4+1 
                 document.getElementById('sitem2').innerHTML = twotierQ[pn * 21 + cans * 4 + 2];
