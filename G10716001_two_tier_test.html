@@ -249,16 +249,17 @@
             document.getElementById(close[w]).disabled = true;
 			document.getElementById(second_close[w]).disabled = true;
 		}
+		report();
 	}
 	
     function check2() { //2nd-tier
         var msg = "",
             x1;
         if (firstans[pn] == cans && secondans[pn] == cans2) {
-            msg = "correct";
+            msg = "Correct!!";
             rec[pn] = 1;
         } else {
-            msg = "Incorrect";
+            msg = "InCorrect!!";
 			rec[pn] = 0;
         }
 		
@@ -267,7 +268,7 @@
 		if (pn < (TOTAL_QUESTION_ITEMS-1)) {
 			pn++;
 		}else{
-			document.getElementById('misconcept').innerHTML = '<font color=blue>已為最後一題, 測驗結束 .</font><br>';
+			document.getElementById('misconcept').innerHTML = '<font color=blue>測驗結束 .</font><br>';
 			gameover();
 			return;
 		}
@@ -312,7 +313,7 @@
     }
 
     function retest() {
-	
+		getQuiz();
         for (var w = 0; w <= 4; w++) {
             document.getElementById(close[w]).disabled = false;
             document.getElementById(close[w]).checked = false;
