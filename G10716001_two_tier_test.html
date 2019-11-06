@@ -194,7 +194,9 @@
     twotierQ[125] = "D.以上皆非";
 	
 	var TOTAL_QUESTION_ITEMS = 6; //選取10題
-	var COUNTDOWN = 100;
+	var TIME_ON=100;
+	var TIME_OFF=-1;
+	var COUNTDOWN = TIME_ON;
 	var MAX_ARRAY_NUMBER = TOTAL_QUESTION_ITEMS;
     var pn = 0,
         cans = 0;
@@ -203,7 +205,7 @@
     var second_close = ['ss1', 'ss2', 'ss3', 'ss4', 'c2']
 
     function getQuiz() {
-        // initial   // clear score[]
+        // initial   // clear score: rec[]
         for (var i = 0; i < MAX_ARRAY_NUMBER; i++) {
             rec[i] = 0;
         }
@@ -250,6 +252,7 @@
 			document.getElementById(second_close[w]).disabled = true;
 		}
 		report();
+		COUNTDOWN = TIME_OFF;
 	}
 	
     function check2() { //2nd-tier
@@ -276,9 +279,8 @@
         for (var w = 0; w <= 4; w++) {
             document.getElementById(close[w]).disabled = false;
             document.getElementById(close[w]).checked = false;
-            z = w < 4 ? w : w - 1
-            document.getElementById(second_close[z]).disabled = false;
-            document.getElementById(second_close[z]).checked = false;
+            document.getElementById(second_close[w]).disabled = false;
+            document.getElementById(second_close[w]).checked = false;
             z = w < 4 ? w + 1 : w;
             var lock = 'item' + z;
             var lock2 = 'sitem' + z;
@@ -293,11 +295,13 @@
     }
 
     function suggest() {
+		/*
 		if(!radioCheck_OK()) {
 			document.getElementById('misconcept').innerHTML = '<font color=red>請選答 !</font><br>'
 			return;
 		}
-		if (COUNTDOWN > 0) {
+		*/
+		if (COUNTDOWN != TIME_OFF) {
 			document.getElementById('misconcept').innerHTML = '<font color=red>目前答題中</font><br>'
 			return;
 		}
@@ -313,6 +317,7 @@
     }
 
     function retest() {
+		COUNTDOWN = TIME_ON;
 		getQuiz();
         for (var w = 0; w <= 4; w++) {
             document.getElementById(close[w]).disabled = false;
