@@ -64,8 +64,10 @@
     var suggestItems = suggestString.split("#");
     var ans = ans1.concat(ans2);
     var index = 0;
-
-    var COUNTDOWN = 100;
+	
+	var TIME_ON=100;
+	var TIME_OFF=-1;
+    var COUNTDOWN = TIME_ON;
     var userAns = 0;
     var sc = 0;
     var score = new Array(MAX_ARRAY_NUMBER);
@@ -102,7 +104,11 @@
         if (index < TOTAL_QUESTION_ITEMS - 1) {
             no = R[++index];
             genp();
-        }
+        }else{
+			document.getElementById('suggest1').innerHTML = '<font color=blue size=6>此為最後題目</font><br>';
+			
+			return;
+		}
     }
 
     function genp() {
@@ -180,6 +186,9 @@
 
         score_sumup();
         document.getElementById('sc').innerHTML = '<font size=6>Score: </font><font color=red size=6>' + sc + '分</font>';
+		
+		retest_btn_ON();
+		document.getElementById('suggest1').innerHTML = '';
     }
 
     function showtime() {
@@ -189,7 +198,24 @@
             timestop1();
         }
     }
-
+	function retest_btn_ON(){
+		var x = document.getElementById("retestID");
+		x.style.display = "block";
+	}
+	function retest_btn_OFF(){
+		var x = document.getElementById("retestID");
+		x.style.display = "none";
+	}
+    function retest() {
+		retest_btn_OFF();
+		COUNTDOWN = TIME_ON;
+		index = 0;
+		window.document.getElementById('sc').innerHTML = '';
+		reset();
+		document.getElementById('next').disabled = false;
+        document.getElementById('check').disabled = false;
+		getQuiz(RANGE_NUMBER);begintime();genp();
+	}
 </script>
 
 <body onload='getQuiz(RANGE_NUMBER);begintime();genp();'>
@@ -232,7 +258,7 @@
                 <tr>
                     <td>
                         &nbsp;&nbsp;<button onclick="check();" id='check' style="font-size: .25in; font-weight: bold; color: #0000FF">答&nbsp;&nbsp;題</button>&nbsp;&nbsp;
-                        <button onclick="conditionCheck();reset();genp();" id='next' style="font-size: .25in; font-weight: bold; color: #FF0000">下一題</button>
+                        <button onclick="conditionCheck();" id='next' style="font-size: .25in; font-weight: bold; color: #FF0000">下一題</button>
 
                     </td>
                     <td> <button onclick="timestop1();" style="font-size: .25in;">結束測驗</button> </td>
@@ -249,6 +275,9 @@
     <br>
     <p id='sc'> </p>
     <button onclick="suggest();" style="font-size: .25in; font-weight: bold; color: #FF0000">suggest</button>
+	<div id='retestID' style='display: none;'>
+		<button onclick="retest();" style="font-size: .25in; font-weight: bold;">重新挑戰</button>
+	</div>
     <p id='suggest1'> </p>
 </body>
 
