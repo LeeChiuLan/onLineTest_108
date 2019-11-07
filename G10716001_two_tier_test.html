@@ -193,7 +193,7 @@
     twotierQ[124] = "C.防火牆可以清除電腦病毒";
     twotierQ[125] = "D.以上皆非";
 	
-	var TOTAL_QUESTION_ITEMS = 6; //選取10題
+	var TOTAL_QUESTION_ITEMS = 6; //選取6題
 	var TIME_ON=100;
 	var TIME_OFF=-1;
 	var COUNTDOWN = TIME_ON;
@@ -202,7 +202,7 @@
         cans = 0;
     var rec = new Array(MAX_ARRAY_NUMBER);
     var close = ['s1', 's2', 's3', 's4', 'c1'];
-    var second_close = ['ss1', 'ss2', 'ss3', 'ss4', 'c2']
+    var second_close = ['ss1', 'ss2', 'ss3', 'ss4', 'c2'];
 
     function getQuiz() {
         // initial   // clear score: rec[]
@@ -275,7 +275,7 @@
 			gameover();
 			return;
 		}
-        togglesecond()
+        togglesecond();
         for (var w = 0; w <= 4; w++) {
             document.getElementById(close[w]).disabled = false;
             document.getElementById(close[w]).checked = false;
