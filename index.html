@@ -103,7 +103,17 @@ for (var i = 0; i < btns.length; i++) {
         <iframe id="mainframe" src="random.html" width="100%" height="600px" style="border:none"></iframe>
 
     </div>
+<ul id="messages"></ul>
+	<script>
+	  $(function () {
+	  fs.readFile('records.txt', function (err, data) {
+    if (err) throw err;
+ 
+    $('#messages').append($('<li>').text(data.toString()));
+});
 
+	  });
+	</script>
 </body>
 
 </html>
