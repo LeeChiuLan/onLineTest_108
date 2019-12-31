@@ -26,46 +26,324 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-
-    
-            <!-- 導覽列選項 與導覽列中的表單元素 -->
-            <!-- 小螢幕時要被收起的元素 放置於 navbar-collapse -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!-- 導覽列中的導覽清單 -->
-                <ul class="nav navbar-nav">
-    
-                    <!-- active的選項-->
-                    <li class="active"><a href="#">Home<span class="sr-only">(目前頁面)</span></a></li>
-                    <li><a href="about.html">About</a></li>
-    
-                    <!-- 導覽清單中的dropdown選單 -->
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Food <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="pages/lobster.html">Lobster</a></li>
-                            <li><a href="pages/raman.html">Ramen</a></li>
-                            <li><a href="pages/ice-cream.html">Ice Cream</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Homework <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="homework/iphone/iphone.html">iPhone</a></li>
-                            <li><a href="homework/RWD170211/test.html">Grid Practice</a></li>
-                            <li><a href="homework/SorB/index.html">比大小</a></li>
-                            <li><a href="homework/GuessNumber/index.html">終極密碼</a></li>
-                        </ul>
-                    </li>
-                </ul>
+    <section class="hidden-jumbotron-as-sm" id="hidden-jumbotron-as-sm">
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 ">
+                        <div class="post-heading">
+                            <h1>If you know this then you can extend your happiness</h1>
+                            <h2 class="subheading">Are you subject to time? I am sorry, you are.<br>Happiness is subject to time,<br>and you are subject to uncertainty. </h2>
+                            <span class="meta">Quoted from <a href="http://www.towisdom.org.tw/03-mag.asp" target="_blank">Torch of Wisdom Monthly</a> on February 05, 2017</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.navbar-collapse -->
+        </div>
+    </section>
+    <section class="main-menu">
+        <nav class="menu-fixed-as-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 ">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                            <a class="navbar-brand" href="index.html">Home</a>
+                        </div>
+                        <div>
+                            <div class="collapse navbar-collapse" id="myNavbar">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="decoration.html">Decoration</a></li>
+                                    <li><a href="homework/index.html">Homework</a></li>
+									<li><a href="https://app.powerbi.com/groups/me/reports/64795b49-249e-4503-b3d4-8195aa2542d1?ctid=46a4d6bd-6071-42cc-be07-8f73d79137e6">Power BI</a></li>
+                                </ul>
+                                <!-- 拉到右邊的導覽列清單 -->
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="#">連結</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">下拉選單 <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">選項 1</a></li>
+                                            <li><a href="#">選項 2</a></li>
+                                            <li><a href="#">選項 3</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="#">選項 4</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
-    </nav>
-    <!--導覽列結束-->
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <section class="intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 ">
+                    <div class="gravatar">
+                        <div class="hidden-jumbotron-as-sm">
+                            <h2>Start Bootstrap</h2>
+                            <p class="lead">Forever free, open source, and easy to use. Start Bootstrap is a collection of <strong>free to download Bootstrap themes and templates</strong>. Our themes are open source and you can use them for any purpose, even comercially!
+                            </p>
+                        </div>
+                        <div class="show-jumbotron-as-sm">
+                            <h2 class="subheading">If you know this then you can extend your happiness</h2>
+                            <p class="lead">Quoted from <a href="http://www.towisdom.org.tw/03-mag.asp" target="_blank">Torch of Wisdom Monthly</a> on February 05, 2017</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="google-search-like">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://wujpkimo.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>Jason Wu</h3>                            
+                        </div>
+                        <img src="image/url/wujpkimo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://leoweng.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>翁聖竑</h3>                            
+                        </div>
+                        <img src="image/url/leoweng.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://yilingleednd.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>Yiling Lee</h3>                            
+                        </div>
+                        <img src="image/url/yilingleednd.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://lommings.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>Pearl Huang</h3>                            
+                        </div>
+                        <img src="image/url/http404.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="google-search-like">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://sharonsung.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>Sharon Shu</h3>                            
+                        </div>
+                        <img src="image/url/sharonsung.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://paiyuliu.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>牛伯雨</h3>                            
+                        </div>
+                        <img src="image/url/paiyuliu.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://eugenieh.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>黃玉菁</h3>                            
+                        </div>
+                        <img src="image/url/eugenieh.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://es956203.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>劉理中</h3>                            
+                        </div>
+                        <img src="image/url/es956203.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="google-search-like">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://lic0522.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>王東閎</h3>                            
+                        </div>
+                        <img src="image/url/lic0522.gif" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://evan510.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>Evan Wu</h3>                            
+                        </div>
+                        <img src="image/url/evan510.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://verachang1.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>Chia-Yu Chang</h3>                            
+                        </div>
+                        <img src="image/url/verachang1.gif" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://tiffanyzz.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>楊婷詠</h3>                            
+                        </div>
+                        <img src="image/url/tiffanyzz.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="google-search-like">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://chenwanning.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>成婉寧</h3>                            
+                        </div>
+                        <img src="image/url/chenwanning.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://phutranrose.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>Phu Tranrose</h3>                            
+                        </div>
+                        <img src="image/url/phutranrose.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://peace9630.github.io/" target="_blank">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>Ellie Chiang</h3>                            
+                        </div>
+                        <img src="image/url/peace9630.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <div class="thumbnail">
+                       <a href="https://leechiulan.github.io/">
+                        <div class="caption">
+                            <h3><span class="glyphicon glyphicon-link"></span>李秋蘭</h3>                            
+                        </div>
+                        <img src="image/url/leechiulan.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="display-none">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;width:200px;background-color:#transparent; border:1px solid #333333;">
+                        <div id="rsswidget" style="height:500px;">
+                            <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1486307589164&amp;x=http%3A%2F%2Frss.news.yahoo.com%2Frss%2Ftopstories&amp;w=200&amp;h=500&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=true&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=false&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12" border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="border:0; padding:0; margin:0; width:200px; height:500px;" id="rssOutput">Reading RSS Feed ...</iframe>
+                        </div>
+                        <div style="text-align:right;margin-bottom:0;border-top:1px solid #333333;" id="widgetbottom"><span style="font-size:70%"><a href="http://www.rssfeedwidget.com">rss feed widget</a>&nbsp;</span><br></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+   
+    <footer>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 ">
+                    <ul>
+                        <li>link 1</li>
+                        <li>link 2</li>
+                        <li>link 3</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 ">
+                    <ul>
+                        <li>link 1</li>
+                        <li>link 2</li>
+                        <li>link 3</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 ">
+                    <ul>
+                        <li>link 1</li>
+                        <li>link 2</li>
+                        <li>link 3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+ <div id="fixed-btn"><a href="#"><span class="glyphicon glyphicon-arrow-up"></span> to Top</a></div>
+
+
+
+
 </body>
 
 </html>
