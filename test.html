@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<script>
+    function resizeIframe(obj) {
+        obj.style.height = 0;
+        obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+    }
+
+    function newSite(obj, index, st) {
+        var sites = ['G10716001_multi_choise.html',
+            'G10716001_random-correct.html',
+            'notready.html',
+            'G10716001_two_tier_test.html',
+			'https://www.pewresearch.org/internet/quiz/cybersecurity-knowledge/',
+            'reference.html',
+            'home.html',
+            'about.html'
+        ]
+
+        document.getElementById('mainframe').src = sites[index];
+        document.getElementById('topic').innerHTML = "<font color=#4CAF50>" + st + "</font>";
+        //resizeIframe(obj);
+    }
+</script>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html {
+            overflow: -moz-hidden-unscrollable;
+            height: 100%;
+        }
+        
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            -ms-overflow-style: none;
+            height: 100%;
+            width: calc(100vw + 18px);
+            overflow: auto;
+        }
+        
+        .topnav {
+            overflow: hidden;
+            background-color: #4CAF50;
+        }
+        
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        .topnav a.active {
+            background-color: #333;
+            color: white;
+        }
+
+.active, .btn:hover {
+  background-color: #666;
+  color: white;
+}
+    </style>
+</head>
+
+<body onload="newSite(this,0,'循序單選題')">
+
+    <div class="topnav" id="sub-header">
+        <a class="btn active" href="javascript:void(0);" onclick="newSite(this,0,'循序單選題')">循序單選題</a>
+        <a class="btn" href="javascript:void(0);" onclick="newSite(this,1,'隨機單選題')">隨機單選題</a>
+        <a class="btn" href="javascript:void(0);" onclick="newSite(this,2,'選項隨機')">選項隨機</a>
+        <a class="btn" href="javascript:void(0);" onclick="newSite(this,3,'二階層診斷')">二階層診斷</a>
+        <a class="btn" href="javascript:void(0);" onclick="newSite(this,4,'')">其他測驗庫</a>
+        <a class="btn" href="javascript:void(0);" onclick="newSite(this,5,'參考資料')">參考資料</a>
+        <a class="btn" href="javascript:void(0);" onclick="newSite(this,6,'返回主頁')">返回主頁</a>
+        <a class="btn" href="javascript:void(0);" onclick="newSite(this,7,'關於作者')">關於作者</a>
+    </div>
+<script>
+// Add active class to the current button (highlight it)
+var header = document.getElementById("sub-header");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+</script>
+    <div style="padding-left:16px">
+        <h2>資訊安全 [主題] - 惡意軟體</h2>
+        <span id='topic'></span>
+        <iframe id="mainframe" src="random.html" width="100%" height="600px" style="border:none"></iframe>
+
+    </div>
+	
+</body>
+
+</html>
