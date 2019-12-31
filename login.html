@@ -117,12 +117,10 @@ input[type=reset]:hover {
     </style>
 </head>
 <script>
-var init = 0;
 var  id = "";
 var  name = "";
 function initAction ()   
 {
-	init = 0;
 	if (getAction() == true){
 		document.getElementById("accountid").value = id;
 		document.getElementById("username").value = name;
@@ -131,8 +129,6 @@ function initAction ()
 
 function setAction (element, page)   
 {
-	init = 1;
-	localStorage.setItem("register", init);
 	id = document.getElementById("accountid").value
 	localStorage.setItem("accountid", id);
 	name = document.getElementById("username").value
@@ -153,7 +149,6 @@ function getAction()
 }
 function setClear()   
 {
-	localStorage.removeItem("register");
 	localStorage.removeItem("accountid");
 	localStorage.removeItem("username");
 	id = "";

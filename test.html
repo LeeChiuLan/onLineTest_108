@@ -79,12 +79,10 @@
 <script>
 function getAction()   
 {
-	var register=localStorage.getItem("register");
-	if (register!=1 || register==null ) return;
-	var  id = localStorage.getItem("accountid");
-	var  name = localStorage.getItem("username");
-	
-	 document.getElementById('information').innerHTML = "User: "+id +"&nbsp;&nbsp;&nbsp;&nbsp;"+name;
+	var id = localStorage.getItem("accountid");
+	var name = localStorage.getItem("username");
+	var prefixst=(id==null || id=="")?"":"User: ";
+	document.getElementById('information').innerHTML = prefixst+id +"&nbsp;&nbsp;&nbsp;&nbsp;"+name;
 }
 </script>
 <body onload="getAction();newSite(this,0,'循序單選題')">
