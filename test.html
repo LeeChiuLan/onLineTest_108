@@ -80,7 +80,7 @@
 function getAction()   
 {
 	var register=localStorage.getItem("register");
-	if (register != 1) return;
+	if (register!=1 || register==null ) return;
 	var  id = localStorage.getItem("accountid");
 	var  name = localStorage.getItem("username");
 	
