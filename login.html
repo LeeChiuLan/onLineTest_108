@@ -118,8 +118,8 @@ input[type=reset]:hover {
 </head>
 <script>
 var init = 0;
-var  id = null;
-var  name = null;
+var  id = "";
+var  name = "";
 function initAction ()   
 {
 	init = 0;
@@ -133,17 +133,20 @@ function setAction (element, page)
 {
 	init = 1;
 	localStorage.setItem("register", init);
-	var  id = document.getElementById("accountid").value
+	id = document.getElementById("accountid").value
 	localStorage.setItem("accountid", id);
-	var  name = document.getElementById("username").value
+	name = document.getElementById("username").value
 	localStorage.setItem("username", name);
+	
+	togglesecond();
+	return false;
 }
 function getAction()   
 {
 	id = localStorage.getItem("accountid");
 	name = localStorage.getItem("username");
 	
-	if (id == null) return false;
+	if (id == "") return false;
 	return true;
 	
 
@@ -153,6 +156,25 @@ function setClear()
 	localStorage.removeItem("register");
 	localStorage.removeItem("accountid");
 	localStorage.removeItem("username");
+	id = "";
+	name = "";
+}
+
+function togglesecond() { //show or hide
+	var x = document.getElementById("secondquest");
+	var y = document.getElementById("partone");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+		y.style.display = "none";
+	} else {
+		x.style.display = "none";
+		y.style.display = "block";
+	}
+	document.getElementById('information').innerHTML = name;
+}
+
+function submitBtnClick(){
+	document.myForm.submit();
 }
 </script>
 <body onload="initAction();">
@@ -200,19 +222,26 @@ function setClear()
     </section>
     <section class="intro">
 		<div class="container">
-			<form action="test.html">
-				<div class="row">
-					<h2 style="text-align:center">Login with Your Account</h2>
-
-					<div class="col">
-						<input type="text" id="accountid" name="accountid" placeholder="學號 " required>
-						<input type="text" id="username" name="username" placeholder="姓名" required>
-						<input type="submit" onclick='setAction(this,"my-page")' value="Login">
-						<input type="reset"  onclick='setClear()' value="Clear">
+			
+			<form action="test.html" name="myForm">
+				<div id='partone'>
+					<div class="row">
+						<h2 style="text-align:center">Login with Your Account</h2>
+						<div class="col">
+							<input type="text" id="accountid" name="accountid" placeholder="學號 " required>
+							<input type="text" id="username" name="username" placeholder="姓名" required>
+							<input type="submit" onclick='return setAction(this,"my-page")' value="Login">
+							<input type="reset"  onclick='setClear()' value="Clear">
+						</div>
 					</div>
-      
 				</div>
 			</form>
+			
+				<div id='secondquest' style='display: none;'>
+					<h2 style="text-align:center">Welcome!<br><span id='information'></span></h2>
+					<br>
+					<button type="submit" onclick="submitBtnClick()">開始測驗</button>
+				</div>
         </div>
     </section>
 </body>
