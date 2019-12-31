@@ -16,7 +16,8 @@ window.onresize = function(event) {
      
 }
 
-$(window).onscroll(function() {
+$(window).onscroll
+(function() {
   if($(this).scrollTop() != 0) {
     $('#to-top').fadeIn(); 
   } else {
