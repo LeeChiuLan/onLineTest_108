@@ -85,7 +85,6 @@
         <a class="btn" href="javascript:void(0);" onclick="newSite(this,5,'參考資料')">參考資料</a>
         <a class="btn" href="javascript:void(0);" onclick="newSite(this,6,'關於作者')">關於作者</a>
     </div>
-<script src="scripts/rdTestFile.js"></script> 
 <script>
 // Add active class to the current button (highlight it)
 var header = document.getElementById("sub-header");
@@ -105,17 +104,7 @@ for (var i = 0; i < btns.length; i++) {
         <iframe id="mainframe" src="random.html" width="100%" height="600px" style="border:none"></iframe>
 
     </div>
-<ul id="messages"></ul>
-	<script>
-	  $(function () {
-	  fs.readFile('records.txt', function (err, data) {
-    if (err) throw err;
- 
-    $('#messages').append($('<li>').text(data.toString()));
-});
-
-	  });
-	</script>
+	
 </body>
 
 </html>
