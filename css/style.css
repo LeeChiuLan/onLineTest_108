@@ -76,7 +76,7 @@ li.dropdown {
 
 .jumbotron {
     height: 300px;
-    background: none;
+    background: url(https://source.unsplash.com/1633x600?nature);
     background-size: cover;
     color: white;
     text-align: center;
