@@ -25,8 +25,8 @@ var test_title=['循序單選題','隨機單選題','選項隨機','二階層診
 var test_score=[6,3,2,8,0];
 var test_totaltime=[82,76,93,54,89];
 var MAX_ARRAY_NUMBER = 5;
-var name="Lee";
-var id="G107";
+var name="";
+var id="";
 var messages;
 
 function update(index,title,score,totaltime)
@@ -80,8 +80,14 @@ function getAction()
 	getItems();
 	messages=document.getElementById('messages');
 	var content="";
-	var prefixst="User: ";
+	
+	var _id = localStorage.getItem("accountid");
+	var _name = localStorage.getItem("username");
+	id=(_id==null || _id=="")?"":_id;
+	name=(_name==null || _name=="")?"":_name;
+	var prefixst=(id==null || id=="")?"":"User: ";
 	content="<h2>"+prefixst+id +"&nbsp;&nbsp;&nbsp;&nbsp;"+name+"</h2>";
+	
 	//total_score = test_score.reduce((a,b)=>a+b);
 	total_score = SumData(test_score);
 	content=content+"<h2>總分:&nbsp;&nbsp;"+total_score.toString()+"</h2>";
