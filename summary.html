@@ -20,6 +20,7 @@ tr:nth-child(even) {
 </style>
 </head>
 <script>
+              /*  0         ,   1        ,  2       ,    3       ,   4      */
 var test_title=['循序單選題','隨機單選題','選項隨機','二階層診斷','動態評量'];
 var test_score=[6,3,2,8,0];
 var test_totaltime=[82,76,93,54,89];
@@ -43,6 +44,11 @@ function getItems()
 	test_score_0=localStorage.getItem("test_score_0");
 	test_totaltime_0=localStorage.getItem("test_totaltime_0");
 	update(0,test_title_0,test_score_0,test_totaltime_0);
+	
+	test_title_1=localStorage.getItem("test_title_1");
+	test_score_1=localStorage.getItem("test_score_1");
+	test_totaltime_1=localStorage.getItem("test_totaltime_1");
+	update(1,test_title_1,test_score_1,test_totaltime_1);
 }
 
 function SumData(arr){

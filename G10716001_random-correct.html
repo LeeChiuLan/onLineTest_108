@@ -190,6 +190,8 @@
 		
 		retest_btn_ON();
 		document.getElementById('suggest1').innerHTML = '';
+		
+		setAction();/* pass parameters */
     }
 
     function showtime() {
@@ -216,9 +218,24 @@
 		document.getElementById('next').disabled = false;
         document.getElementById('check').disabled = false;
 		getQuiz(RANGE_NUMBER);begintime();genp();
+		
+		setClear();
 	}
 </script>
-
+<script>
+/* pass parameters by localStorage */
+function setAction()
+{
+	localStorage.setItem("test_title_1", '隨機單選題');
+	localStorage.setItem("test_score_1", sc);
+	localStorage.setItem("test_totaltime_1", TIME_ON-count);
+}
+function setClear()   
+{
+	localStorage.removeItem("test_score_1");
+	localStorage.removeItem("test_totaltime_1");
+}
+</script>
 <body onload='getQuiz(RANGE_NUMBER);begintime();genp();'>
     <div class='fontA'>
         <table class="fixed" border="1" style="font-size:30px; border:2px #00DBDB solid;">
