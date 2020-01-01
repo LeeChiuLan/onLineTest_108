@@ -144,6 +144,8 @@
 		
 		retest_btn_ON();
 		document.getElementById('suggest1').innerHTML = '';
+		
+		setAction();/* pass parameters */
     }
 
     function showtime() {
@@ -177,9 +179,24 @@
         }
 		
 		begintime();genp();
+		
+		setClear();
 	}
 </script>
-
+<script>
+/* pass parameters by localStorage */
+function setAction()
+{
+	localStorage.setItem("test_title_0", '循序單選題');
+	localStorage.setItem("test_score_0", sc);
+	localStorage.setItem("test_totaltime_0", TIME_ON-count);
+}
+function setClear()   
+{
+	localStorage.removeItem("test_score_0");
+	localStorage.removeItem("test_totaltime_0");
+}
+</script>
 <body onload='begintime();genp();'>
     <div class='fontA'>
         <table class="fixed" border="1" style="font-size:30px; border:2px #00DBDB solid;">
