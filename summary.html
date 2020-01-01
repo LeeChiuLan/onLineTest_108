@@ -45,6 +45,15 @@ function getItems()
 	update(0,test_title_0,test_score_0,test_totaltime_0);
 }
 
+function SumData(arr){
+    var sum=0;
+    for (var i = 0; i < arr.length; i++) {
+		if(isNaN(arr[i])) continue;
+		sum += parseInt(arr[i]);
+    };
+    return sum;
+}
+
 function getAction()   
 {
 	getItems();
@@ -52,7 +61,8 @@ function getAction()
 	var content="";
 	var prefixst="User: ";
 	content="<h2>"+prefixst+id +"&nbsp;&nbsp;&nbsp;&nbsp;"+name+"</h2>";
-	total_score = test_score.reduce((a,b)=>a+b);
+	//total_score = test_score.reduce((a,b)=>a+b);
+	total_score = SumData(test_score);
 	content=content+"<h2>總分:&nbsp;&nbsp;"+total_score.toString()+"</h2>";
 	content=content+"<table>";
 	total=test_title.length;
