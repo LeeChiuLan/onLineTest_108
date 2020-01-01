@@ -253,6 +253,8 @@
 		}
 		report();
 		COUNTDOWN = TIME_OFF;
+		
+		setAction();/* pass parameters */
 	}
 	
     function check2() { //2nd-tier
@@ -337,6 +339,8 @@
         shprob();
 		document.getElementById('show1').innerHTML = '';
 		window.document.getElementById('score').innerHTML = 'score:0';
+		
+		setClear();
     }
 
     function togglesecond() { //show or hide
@@ -349,7 +353,20 @@
     }
 
 </script>
-
+<script>
+/* pass parameters by localStorage */
+function setAction()
+{
+	localStorage.setItem("test_title_3", '二階層診斷');
+	localStorage.setItem("test_score_3", sc);
+	//localStorage.setItem("test_totaltime_3", TIME_ON-count);
+}
+function setClear()   
+{
+	localStorage.removeItem("test_score_3");
+	localStorage.removeItem("test_totaltime_3");
+}
+</script>
 <body onload="getQuiz();shprob();">
 <div class='fontA'>
     <table border="1" style="font-size:24px; border:2px #00DBDB solid;">
