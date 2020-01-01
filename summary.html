@@ -35,7 +35,7 @@ function update(index,title,score,totaltime)
 
 	test_title[index]=(title==null || title=="")?test_title[index]:title;
 	test_score[index]=(score==null || score=="")?"未測":score;
-	test_totaltime[index]=(totaltime==null || totaltime=="")?"0":totaltime;
+	test_totaltime[index]=(totaltime==null || totaltime=="")?"-":totaltime;
 }
 
 function getItems()
@@ -59,6 +59,11 @@ function getItems()
 	test_score_3=localStorage.getItem("test_score_3");
 	test_totaltime_3=localStorage.getItem("test_totaltime_3");
 	update(3,test_title_3,test_score_3,test_totaltime_3);
+	
+	test_title_4=localStorage.getItem("test_title_4");
+	test_score_4=localStorage.getItem("test_score_4");
+	test_totaltime_4=localStorage.getItem("test_totaltime_4");
+	update(4,test_title_4,test_score_4,test_totaltime_4);
 }
 
 function SumData(arr){
