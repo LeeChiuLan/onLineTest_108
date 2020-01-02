@@ -115,10 +115,9 @@ function getAction()
 	var prefixst=(id==null || id=="")?"":"User: ";
 	content="<h2>"+prefixst+id +"&nbsp;&nbsp;&nbsp;&nbsp;"+name+"</h2>";
 	
-	alert(filename);
 	ownname=(id=="")?"":("."+id);
 	filename=filename+ownname+"."+getdate();
-	alert(filename);
+
 	//total_score = test_score.reduce((a,b)=>a+b);
 	total_score = SumData(test_score);
 	content=content+"<h2><span class='droid'>總分</span>:&nbsp;&nbsp;"+total_score.toString()+"</h2>";
