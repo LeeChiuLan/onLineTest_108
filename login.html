@@ -122,7 +122,7 @@ input[type=reset]:hover {
 
 function ConfirmDialog(message) {
   $('<div></div>').appendTo('body')
-    .html('<div><h6>' + message + '?</h6></div>')
+    .html('<div><h4>' + message + '</h4></div>')
     .dialog({
       modal: true,
       title: 'Delete message',
@@ -200,7 +200,7 @@ function togglesecond() { //show or hide
 }
 
 function submitBtnClick(){
-	ConfirmDialog("All records will be clear. Continue?");
+	ConfirmDialog("會清除之前紀錄. 繼續?");
 }
 
 function clearItems()
