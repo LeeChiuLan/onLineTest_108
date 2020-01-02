@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://LeeChiuLan.github.io/css/MyBootstrap/base.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="jquery/axjs0.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
         $(document).ready(function() {  
             $(window).bind('scroll', function() {  
@@ -115,6 +118,34 @@ input[type=reset]:hover {
         }
 
     </style>
+	<script type="text/javascript">
+
+function ConfirmDialog(message) {
+  $('<div></div>').appendTo('body')
+    .html('<div><h6>' + message + '?</h6></div>')
+    .dialog({
+      modal: true,
+      title: 'Delete message',
+      zIndex: 10000,
+      autoOpen: true,
+      width: 'auto',
+      resizable: false,
+      buttons: {
+        Yes: function() {
+			window.location = 'test.html';
+			clearItems();
+          $(this).dialog("close");
+        },
+        No: function() {
+          $(this).dialog("close");
+        }
+      },
+      close: function(event, ui) {
+        $(this).remove();
+      }
+    });
+};
+    </script>
 </head>
 <script>
 var  id = "";
@@ -169,7 +200,35 @@ function togglesecond() { //show or hide
 }
 
 function submitBtnClick(){
-	document.myForm.submit();
+	ConfirmDialog("All records will be clear. Continue?");
+}
+
+function clearItems()
+{
+	//localStorage.removeItem("test_title_0");
+	localStorage.removeItem("test_score_0");
+	localStorage.removeItem("test_totaltime_0");
+	localStorage.removeItem("test_note_0");
+	
+	//localStorage.removeItem("test_title_1");
+	localStorage.removeItem("test_score_1");
+	localStorage.removeItem("test_totaltime_1");
+	localStorage.removeItem("test_note_1");
+	
+	//localStorage.removeItem("test_title_2");
+	localStorage.removeItem("test_score_2");
+	localStorage.removeItem("test_totaltime_2");
+	localStorage.removeItem("test_note_2");
+	
+	//localStorage.removeItem("test_title_3");
+	localStorage.removeItem("test_score_3");
+	localStorage.removeItem("test_totaltime_3");
+	localStorage.removeItem("test_note_3");
+	
+	//localStorage.removeItem("test_title_4");
+	localStorage.removeItem("test_score_4");
+	localStorage.removeItem("test_totaltime_4");
+	localStorage.removeItem("test_note_4");
 }
 </script>
 <body onload="initAction();">
