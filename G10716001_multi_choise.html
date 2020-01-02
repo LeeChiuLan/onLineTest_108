@@ -182,6 +182,14 @@
 		
 		setClear();
 	}
+	
+	function errlist(){
+		var errlist_txt="";
+		for (var i = 0; i < score.length; i++) {
+			errlist_txt += (score[i] == 0 ? "錯題" + (i + 1) + ". " : "");
+		}
+		return errlist_txt;
+	}
 </script>
 <script>
 /* pass parameters by localStorage */
@@ -190,11 +198,13 @@ function setAction()
 	localStorage.setItem("test_title_0", '循序單選題');
 	localStorage.setItem("test_score_0", sc);
 	localStorage.setItem("test_totaltime_0", TIME_ON-count);
+	localStorage.setItem("test_note_0", errlist());
 }
 function setClear()   
 {
 	localStorage.removeItem("test_score_0");
 	localStorage.removeItem("test_totaltime_0");
+	localStorage.removeItem("test_note_0");
 }
 </script>
 <body onload='begintime();genp();'>

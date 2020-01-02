@@ -24,18 +24,20 @@ tr:nth-child(even) {
 var test_title=['循序單選題','隨機單選題','選項隨機','二階層診斷','動態評量'];
 var test_score=[6,3,2,8,0];
 var test_totaltime=[82,76,93,54,89];
+var test_note=['','','','',''];
 var MAX_ARRAY_NUMBER = 5;
 var name="";
 var id="";
 var messages;
 
-function update(index,title,score,totaltime)
+function update(index,title,score,totaltime,note)
 {
 	if (index > MAX_ARRAY_NUMBER) return;
 
 	test_title[index]=(title==null || title=="")?test_title[index]:title;
 	test_score[index]=(score==null || score=="")?"未測":score;
-	test_totaltime[index]=(totaltime==null || totaltime=="")?"-":totaltime;
+	test_totaltime[index]=(totaltime==null || totaltime=="")?"":totaltime;
+	test_note[index]=(note==null || note=="")?"":note;
 }
 
 function getItems()
@@ -43,27 +45,32 @@ function getItems()
 	test_title_0=localStorage.getItem("test_title_0");
 	test_score_0=localStorage.getItem("test_score_0");
 	test_totaltime_0=localStorage.getItem("test_totaltime_0");
-	update(0,test_title_0,test_score_0,test_totaltime_0);
+	test_note_0=localStorage.getItem("test_note_0");
+	update(0,test_title_0,test_score_0,test_totaltime_0,test_note_0);
 	
 	test_title_1=localStorage.getItem("test_title_1");
 	test_score_1=localStorage.getItem("test_score_1");
 	test_totaltime_1=localStorage.getItem("test_totaltime_1");
-	update(1,test_title_1,test_score_1,test_totaltime_1);
+	test_note_1=localStorage.getItem("test_note_1");
+	update(1,test_title_1,test_score_1,test_totaltime_1,test_note_1);
 	
 	test_title_2=localStorage.getItem("test_title_2");
 	test_score_2=localStorage.getItem("test_score_2");
 	test_totaltime_2=localStorage.getItem("test_totaltime_2");
-	update(2,test_title_2,test_score_2,test_totaltime_2);
+	test_note_2=localStorage.getItem("test_note_2");
+	update(2,test_title_2,test_score_2,test_totaltime_2,test_note_2);
 	
 	test_title_3=localStorage.getItem("test_title_3");
 	test_score_3=localStorage.getItem("test_score_3");
 	test_totaltime_3=localStorage.getItem("test_totaltime_3");
-	update(3,test_title_3,test_score_3,test_totaltime_3);
+	test_note_3=localStorage.getItem("test_note_3");
+	update(3,test_title_3,test_score_3,test_totaltime_3,test_note_3);
 	
 	test_title_4=localStorage.getItem("test_title_4");
 	test_score_4=localStorage.getItem("test_score_4");
 	test_totaltime_4=localStorage.getItem("test_totaltime_4");
-	update(4,test_title_4,test_score_4,test_totaltime_4);
+	test_note_4=localStorage.getItem("test_note_4");
+	update(4,test_title_4,test_score_4,test_totaltime_4,test_note_4);
 }
 
 function SumData(arr){
@@ -93,9 +100,9 @@ function getAction()
 	content=content+"<h2>總分:&nbsp;&nbsp;"+total_score.toString()+"</h2>";
 	content=content+"<table>";
 	total=test_title.length;
-	tmp_txt ="<tr><th>項目</th><th>分數</th><th>費時(單位:秒)</th></tr>";
+	tmp_txt ="<tr><th>項目</th><th>分數</th><th>費時(單位:秒)</th><th>備註</th></tr>";
 	for (var i = 0; i < total; i++) {
-		tmp_txt = tmp_txt+"<tr><td>"+test_title[i]+"</td><td>"+test_score[i].toString()+"</td><td>"+test_totaltime[i].toString()+"</td></tr>";
+		tmp_txt = tmp_txt+"<tr><td>"+test_title[i]+"</td><td>"+test_score[i].toString()+"</td><td>"+test_totaltime[i].toString()+"</td><td>"+test_note[i].toString()+"</td></tr>";
 		
     };
 	
