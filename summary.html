@@ -40,6 +40,7 @@ var MAX_ARRAY_NUMBER = 5;
 var name="";
 var id="";
 var messages;
+var filename="summary";
 
 function update(index,title,score,totaltime,note)
 {
@@ -93,6 +94,14 @@ function SumData(arr){
     return sum;
 }
 
+function getdate()
+{
+	var Today = new Date();
+	var yyyy = Today.getFullYear(); //年
+	var MM = Today.getMonth()+1;    //月
+	var dd = Today.getDate();       //日
+	return yyyy.toString()+MM.toString()+dd.toString();
+}
 function getAction()   
 {
 	getItems();
@@ -106,6 +115,10 @@ function getAction()
 	var prefixst=(id==null || id=="")?"":"User: ";
 	content="<h2>"+prefixst+id +"&nbsp;&nbsp;&nbsp;&nbsp;"+name+"</h2>";
 	
+	alert(filename);
+	ownname=(id=="")?"":("."+id);
+	filename=filename+ownname+"."+getdate();
+	alert(filename);
 	//total_score = test_score.reduce((a,b)=>a+b);
 	total_score = SumData(test_score);
 	content=content+"<h2><span class='droid'>總分</span>:&nbsp;&nbsp;"+total_score.toString()+"</h2>";
@@ -127,9 +140,9 @@ function getAction()
 <div id="pdfdiv">
 <ul id="messages"></ul>
 </div>
-<a href='javascript:genPDF()'>Download PDF</a>
+<a href='javascript:genPDF(filename)'>Download PDF</a>
 <script>
-function genPDF() {
+function genPDF(filename) {
 	var doc = new jsPDF('p','pt','a4');
 	
 	doc.internal.scaleFactor = 1;
@@ -139,7 +152,7 @@ function genPDF() {
 	
 	//doc.addHTML($('#pdfdiv').get(0),options,function() {
 	doc.addHTML(document.body,options,function() {
-	doc.save('test.pdf');
+	doc.save(filename+'.pdf');
 	});	
 	
 }
