@@ -352,6 +352,13 @@
         }
     }
 
+	function errlist(){
+		var bug = '';
+		for (var i = 0; i < TOTAL_QUESTION_ITEMS; i++){
+				if (rec[i] == 0) bug = bug + "錯題" + (i+1) + ". ";
+			}
+		return bug;
+	}
 </script>
 <script>
 /* pass parameters by localStorage */
@@ -360,11 +367,13 @@ function setAction()
 	localStorage.setItem("test_title_3", '二階層診斷');
 	localStorage.setItem("test_score_3", sc);
 	localStorage.setItem("test_totaltime_3", "-");
+	localStorage.setItem("test_note_3", errlist());
 }
 function setClear()   
 {
 	localStorage.removeItem("test_score_3");
 	localStorage.removeItem("test_totaltime_3");
+	localStorage.removeItem("test_note_3");
 }
 </script>
 <body onload="getQuiz();shprob();">
