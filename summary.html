@@ -1,7 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html  lang="zh-Hant-TW">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://code.jquery.com/jquery-git.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
 <style>
+body {
+        font-family: droidsansfallback, sans-serif;
+    }
+.droid {
+        font-family: droidsansfallback, sans-serif;
+    }
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -97,7 +108,7 @@ function getAction()
 	
 	//total_score = test_score.reduce((a,b)=>a+b);
 	total_score = SumData(test_score);
-	content=content+"<h2>總分:&nbsp;&nbsp;"+total_score.toString()+"</h2>";
+	content=content+"<h2><span class='droid'>總分</span>:&nbsp;&nbsp;"+total_score.toString()+"</h2>";
 	content=content+"<table>";
 	total=test_title.length;
 	tmp_txt ="<tr><th>項目</th><th>分數</th><th>費時(單位:秒)</th><th>備註</th></tr>";
@@ -111,11 +122,27 @@ function getAction()
 }
 
 </script>
+
 <body onload="getAction();">
-
+<div id="pdfdiv">
 <ul id="messages"></ul>
-
-
-
+</div>
+<a href='javascript:genPDF()'>Download PDF</a>
+<script>
+function genPDF() {
+	var doc = new jsPDF('p','pt','a4');
+	
+	doc.internal.scaleFactor = 1;
+	var options = {
+	pagesplit: true
+	};
+	
+	//doc.addHTML($('#pdfdiv').get(0),options,function() {
+	doc.addHTML(document.body,options,function() {
+	doc.save('test.pdf');
+	});	
+	
+}
+</script>
 </body>
 </html>
