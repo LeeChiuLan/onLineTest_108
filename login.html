@@ -142,7 +142,7 @@ function getAction()
 	id = localStorage.getItem("accountid");
 	name = localStorage.getItem("username");
 	
-	if (id == "") return false;
+	if (id==null || id=="") return false;
 	return true;
 	
 

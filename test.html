@@ -82,6 +82,7 @@ function getAction()
 	var id = localStorage.getItem("accountid");
 	var name = localStorage.getItem("username");
 	var prefixst=(id==null || id=="")?"":"User: ";
+	if (prefixst=="") return;
 	document.getElementById('information').innerHTML = prefixst+id +"&nbsp;&nbsp;&nbsp;&nbsp;"+name;
 }
 </script>
