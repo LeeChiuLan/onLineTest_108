@@ -1,0 +1,282 @@
+﻿<html>
+
+<head>
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #d8da3d;
+        }
+        
+        input[type="radio"] {
+            -ms-transform: scale(1.5);
+            /* IE 9 */
+            -webkit-transform: scale(1.5);
+            /* Chrome, Safari, Opera */
+            transform: scale(1.5);
+        }
+        
+        div.fontA {
+            font-size: xx-large;
+        }
+        
+        table {
+            font-size: 16px;
+        }
+        
+        table.fixed {
+            table-layout: fixed;
+        }
+        
+        table.fixed td {
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<script language=javascript src='qdatabase.js'></script>
+<script>
+    var no = 0;
+
+    
+
+    var suggestString = "駭客後門程式通常是使用主從式架構,一般Server端會常駐於被害者的電腦提供入侵管道#受害者在不知情狀況下下載或安裝了惡意程式,或點選了釣魚郵件,釣魚網站而遭駭客入侵#(1)發動大量封包造成網頁頻寬滿載,網頁速度變慢 (2)發動分散式阻斷服務攻擊DDoS (3)針對通訊協定及特定應用弱點,讓系統服務終止.#駭客發動分散式阻斷服務攻擊(DDoS)癱瘓網站.#隱碼攻擊(SQL injection):利用輸入特殊SQL程式碼,資料庫資料被竊取或是被破壞,系統管理員帳戶被竊竄.#隱碼攻擊(SQL injection):利用輸入特殊SQL程式碼,資料庫資料被竊取或是被破壞,系統管理員帳戶被竊竄.#資訊安全防護:安裝防毒軟體、防火牆,禁止使用USB隨身碟,禁止使用P2P軟體,謹慎開啟信件附加檔案,不瀏覽高風險的網站,定期更新修補弱點#資訊安全防護:安裝防毒軟體、防火牆,禁止使用USB隨身碟,禁止使用P2P軟體,謹慎開啟信件附加檔案,不瀏覽高風險的網站,定期更新修補弱點#資訊安全防護:安裝防毒軟體、防火牆,禁止使用USB隨身碟,禁止使用P2P軟體,謹慎開啟信件附加檔案,不瀏覽高風險的網站,定期更新修補弱點#行動裝置資安威脅徵兆:(1)電池壽命變短 (2)通話經常不尋常中斷 (3)電信費用異常 (4)手機效能變差"
+    //del//var ans = [1, 3, 1, 3, 0, 2, 1, 0, 2, 3];
+    //del//var quest = qString.split("#");
+
+    //suggestString = qString;
+    var suggestItems = suggestString.split("#");
+
+	var TIME_ON=100;
+	var TIME_OFF=-1;
+    var COUNTDOWN = TIME_ON;
+    var userAns = 0;
+    var sc = 0;
+    var score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    //var num_passed = 0;
+    error = '';
+
+    function conditionCheck() {
+        if (no < ans.length - 1) {
+            no++;
+			reset();
+            genp();
+        }else{
+			document.getElementById('suggest1').innerHTML = '<font color=blue size=6>此為最後題目</font><br>';
+			
+			return;
+		}
+    }
+
+    function genp() {
+        document.getElementById('quest1').innerHTML = (no + 1).toString() + ". " + bank1[no];
+        document.getElementById('sel0').innerHTML = sItems[no * 4 + 0];
+        document.getElementById('sel1').innerHTML = sItems[no * 4 + 1];
+        document.getElementById('sel2').innerHTML = sItems[no * 4 + 2];
+        document.getElementById('sel3').innerHTML = sItems[no * 4 + 3];
+
+        userAns = -1; // clear
+        document.getElementById('s0').checked = false;
+        document.getElementById('s1').checked = false;
+        document.getElementById('s2').checked = false;
+        document.getElementById('s3').checked = false;
+    }
+
+    function score_sumup() {
+        sc = score.reduce((a, b) => a + b);
+        return sc >= score.length ? 100 : 0;
+    }
+
+    function reset() {
+        msg = "";
+        document.getElementById('feedback').innerHTML = msg;
+        error = "";
+        document.getElementById('suggest1').innerHTML = '<font color=blue size=6>' + error + '</font>';
+    }
+var sc=0, pn=0, uans=0, cnt=0;
+    function check() {
+        reset();
+        var msg = "";
+        if (userAns == ans[no]) {
+            msg = "Correct!!";
+            score[no] = 5-2*cnt;
+			score[no] = (score[no]<0)?0:score[no];
+			cnt=0;
+			conditionCheck();
+        } else {
+            msg = "InCorrect!!";
+			if (cnt<=3){
+				document.getElementById('prompt').innerHTML="提示："+prompt1[no*4+cnt];
+				cnt++;
+			}else{
+				score[no] = 0;
+				cnt=0;
+				conditionCheck();
+			}
+        }
+
+
+        document.getElementById('feedback').innerHTML = msg;
+        score_sumup();
+        document.getElementById('sc').innerHTML = '<font size=6>Score: </font><font color=red size=6>' + sc + '分</font>';
+    }
+
+    function suggest() {
+        if (COUNTDOWN > 0) {
+            error = "目前答題中<br>";
+            //error += score[no] == 0 ? (no + 1) + ". " + suggestItems[no] + "<br>" : "答對了";
+        } else { // display all after timeout
+            error = "";
+            for (var i = 0; i < score.length; i++) {
+                tmp_txt = "&nbsp;&nbsp;&nbsp;&nbsp;<font color=red>" + sItems[i * 4 + ans[i]] + "</font><br>";
+                error += (score[i] == 0 ? "題目" + (i + 1) + ". " + suggestItems[i] + tmp_txt + "<br>" : "");
+            };
+            if (score_sumup() == 100) error = "全部答對了"
+        }
+        document.getElementById('suggest1').innerHTML = '<font color=blue size=6>' + error + '</font>';
+    }
+
+    function begintime() {
+        count = COUNTDOWN + 1;
+        timer1 = setInterval(showtime, 1000);
+    }
+
+
+    function timestop1() {
+        clearInterval(timer1);
+        
+        document.getElementById('check').disabled = true;
+        COUNTDOWN = -1; // Timeout
+
+        score_sumup();
+        document.getElementById('sc').innerHTML = '<font size=6>Score: </font><font color=red size=6>' + sc + '分</font>';
+		
+		retest_btn_ON();
+		document.getElementById('suggest1').innerHTML = '';
+		
+		setAction();/* pass parameters */
+    }
+
+    function showtime() {
+        count--;
+        document.getElementById('time1').innerHTML = '<font color=red>' + count + '秒</font>';
+        if (count == 0) {
+            timestop1();
+        }
+    }
+
+	function retest_btn_ON(){
+		var x = document.getElementById("retestID");
+		x.style.display = "block";
+	}
+	function retest_btn_OFF(){
+		var x = document.getElementById("retestID");
+		x.style.display = "none";
+	}
+    function retest() {
+		retest_btn_OFF();
+		COUNTDOWN = TIME_ON;
+		no = 0;
+		window.document.getElementById('sc').innerHTML = '';
+		reset();
+		
+        document.getElementById('check').disabled = false;
+		
+        // initial   // clear score[]
+        for (var i = 0; i < score.length; i++) {
+            score[i] = 0;
+        }
+		
+		begintime();genp();
+		
+		setClear();
+	}
+	
+	function errlist(){
+		var errlist_txt="";
+		for (var i = 0; i < score.length; i++) {
+			errlist_txt += (score[i] == 0 ? "錯題" + (i + 1) + ". " : "");
+		}
+		return errlist_txt;
+	}
+</script>
+<script>
+/* pass parameters by localStorage */
+function setAction()
+{
+	localStorage.setItem("test_title_0", '循序單選題');
+	localStorage.setItem("test_score_0", sc);
+	localStorage.setItem("test_totaltime_0", TIME_ON-count);
+	localStorage.setItem("test_note_0", errlist());
+}
+function setClear()   
+{
+	localStorage.removeItem("test_score_0");
+	localStorage.removeItem("test_totaltime_0");
+	localStorage.removeItem("test_note_0");
+}
+</script>
+<body onload='begintime();genp();'>
+    <div class='fontA'>
+        <table class="fixed" border="1" style="font-size:30px; border:2px #00DBDB solid;">
+
+            <col width="800px" />
+            <col width="80px" />
+            <thead>
+                <tr>
+                    <th>資訊安全 [主題] - 惡意軟體</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>測驗倒數計時&nbsp;&nbsp;<span id='time1'>100秒</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><span id='quest1'></span></td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td><input type=radio name=prob1 id='s0' onclick="userAns=0;"><span id='sel0'>0</span></td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td><input type=radio name=prob1 id='s1' onclick="userAns=1;"><span id='sel1'>1</span></td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td><input type=radio name=prob1 id='s2' onclick="userAns=2;"><span id='sel2'>2</span></td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td><input type=radio name=prob1 id='s3' onclick="userAns=3;"><span id='sel3'>3</span></td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;<button onclick="check();" id='check' style="font-size: .25in; font-weight: bold; color: #0000FF">答&nbsp;&nbsp;題</button>&nbsp;&nbsp;
+
+                    </td>
+                    <td> <button onclick="timestop1();" style="font-size: .25in;">結束測驗</button> </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p id=feedback></p>
+                    </td>
+                    <td> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <p id='sc'> </p>
+	<p id='prompt' style="color: red;font-size: .25in; font-weight: bold;">prompt area</p>
+    <button onclick="suggest();" style="font-size: .25in; font-weight: bold; color: #FF0000">suggest</button>
+	<div id='retestID' style='display: none;'>
+		<button onclick="retest();" style="font-size: .25in; font-weight: bold;">重新挑戰</button>
+	</div>
+    <p id='suggest1'> </p>
+</body>
+
+</html>
