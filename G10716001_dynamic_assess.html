@@ -31,7 +31,7 @@
         table.fixed td {
             overflow: hidden;
         }
-
+		
     </style>
 </head>
 <script language=javascript src='qdatabase.js'></script>
@@ -92,9 +92,11 @@
         document.getElementById('feedback').innerHTML = msg;
         error = "";
         document.getElementById('suggest1').innerHTML = '<font color=blue size=6>' + error + '</font>';
+		
+		document.getElementById('prompt').innerHTML='';
     }
+	
 var cnt=0;  // caculate the counts for guess
-
     function check() {
         reset();
         var msg = "";
@@ -145,6 +147,8 @@ var cnt=0;  // caculate the counts for guess
                 error += (score[i] == 0 ? "題目" + (i + 1) + ". " + suggestItems[i] + tmp_txt + "<br>" : "");
             };
             if (score_sumup() == 100) error = "全部答對了";
+			
+			document.getElementById('prompt').innerHTML=scorelist();
         }
         document.getElementById('suggest1').innerHTML = '<font color=blue size=6>' + error + '</font>';
     }
@@ -166,6 +170,7 @@ var cnt=0;  // caculate the counts for guess
 		
 		retest_btn_ON();
 		document.getElementById('suggest1').innerHTML = '';
+		document.getElementById('prompt').innerHTML='';
 		
 		setAction();/* pass parameters */
     }
@@ -211,6 +216,18 @@ var cnt=0;  // caculate the counts for guess
 			errlist_txt += (score[i] == 0 ? "錯題" + (i + 1) + ". " : "");
 		}
 		return errlist_txt;
+	}
+	function scorelist(){
+		var scorelist_txt="<table border=1 style='text-align:center;font-size:24px;font-family:serif;'>";
+		var td1_txt="<tr><td></td>";
+		var td2_txt="<tr><td>得分</td>";
+		for (var i = 0; i < score.length; i++) {
+			td1_txt += "<td>題"+(i+1)+". </td>";
+			td2_txt += "<td>"+score[i]+"</td>";
+		}
+		td1_txt +="</tr>";
+		td2_txt +="</tr>";
+		return 	scorelist_txt+td1_txt+td2_txt+"</table>";
 	}
 </script>
 <script>
