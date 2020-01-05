@@ -84,7 +84,7 @@
 
     function score_sumup() {
         sc = score.reduce((a, b) => a + b);
-        return sc >= score.length ? 100 : 0;
+        return score.includes(0) ? 0 : 100;
     }
 
     function reset() {
@@ -93,7 +93,7 @@
         error = "";
         document.getElementById('suggest1').innerHTML = '<font color=blue size=6>' + error + '</font>';
     }
-var sc=0, pn=0, uans=0, cnt=0;
+var cnt=0;  // caculate the counts for guess
     function check() {
         reset();
         var msg = "";
@@ -131,7 +131,7 @@ var sc=0, pn=0, uans=0, cnt=0;
                 tmp_txt = "&nbsp;&nbsp;&nbsp;&nbsp;<font color=red>" + sItems[i * 4 + ans[i]] + "</font><br>";
                 error += (score[i] == 0 ? "題目" + (i + 1) + ". " + suggestItems[i] + tmp_txt + "<br>" : "");
             };
-            if (score_sumup() == 100) error = "全部答對了"
+            if (score_sumup() == 100) error = "全部答對了";
         }
         document.getElementById('suggest1').innerHTML = '<font color=blue size=6>' + error + '</font>';
     }
