@@ -94,13 +94,21 @@
         document.getElementById('suggest1').innerHTML = '<font color=blue size=6>' + error + '</font>';
     }
 var cnt=0;  // caculate the counts for guess
+
     function check() {
         reset();
         var msg = "";
+		var current_score=0;
+		var hit_txt="";
+		
         if (userAns == ans[no]) {
             msg = "Correct!!";
             score[no] = 5-2*cnt;
 			score[no] = (score[no]<0)?0:score[no];
+			
+			current_score = score[no];
+			hit_txt=',本題得'+current_score+'分';
+			
 			cnt=0;
 			conditionCheck();
         } else {
@@ -108,8 +116,13 @@ var cnt=0;  // caculate the counts for guess
 			if (cnt<=3){
 				document.getElementById('prompt').innerHTML="提示："+prompt1[no*4+cnt];
 				cnt++;
+				hit_txt=',第'+cnt+'次答題';
 			}else{
 				score[no] = 0;
+				
+				current_score = score[no];
+				hit_txt=',本題得'+current_score+'分';
+				
 				cnt=0;
 				conditionCheck();
 			}
@@ -118,7 +131,7 @@ var cnt=0;  // caculate the counts for guess
 
         document.getElementById('feedback').innerHTML = msg;
         score_sumup();
-        document.getElementById('sc').innerHTML = '<font size=6>Score: </font><font color=red size=6>' + sc + '分</font>';
+        document.getElementById('sc').innerHTML = '<font size=6>Score: </font><font color=red size=6>' + sc + '分'+hit_txt+'</font>';
     }
 
     function suggest() {
