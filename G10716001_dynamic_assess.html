@@ -62,8 +62,8 @@
 			reset();
             genp();
         }else{
-			document.getElementById('suggest1').innerHTML = '<font color=blue size=6>此為最後題目</font><br>';
-			
+			document.getElementById('suggest1').innerHTML = '<font color=blue size=6>此為最後題目-本題答畢!</font><br>';
+			document.getElementById('check').disabled = true;
 			return;
 		}
     }
