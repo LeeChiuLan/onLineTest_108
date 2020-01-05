@@ -148,7 +148,7 @@ var cnt=0;  // caculate the counts for guess
             };
             if (score_sumup() == 100) error = "全部答對了";
 			
-			document.getElementById('prompt').innerHTML=scorelist();
+			document.getElementById('prompt').innerHTML=scorelist(false);
         }
         document.getElementById('suggest1').innerHTML = '<font color=blue size=6>' + error + '</font>';
     }
@@ -217,8 +217,9 @@ var cnt=0;  // caculate the counts for guess
 		}
 		return errlist_txt;
 	}
-	function scorelist(){
+	function scorelist(nocss){ 
 		var scorelist_txt="<table border=1 style='text-align:center;font-size:24px;font-family:serif;'>";
+		if (nocss == true) scorelist_txt="<table>";
 		var td1_txt="<tr><td></td>";
 		var td2_txt="<tr><td>得分</td>";
 		for (var i = 0; i < score.length; i++) {
@@ -237,7 +238,8 @@ function setAction()
 	localStorage.setItem("test_title_4", '動態評量');
 	localStorage.setItem("test_score_4", sc);
 	localStorage.setItem("test_totaltime_4", TIME_ON-count);
-	localStorage.setItem("test_note_4", errlist());
+	localStorage.setItem("test_note_4", scorelist(true));
+	//localStorage.setItem("test_note_4", errlist());
 }
 function setClear()   
 {
