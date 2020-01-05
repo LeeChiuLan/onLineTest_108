@@ -37,9 +37,6 @@
 <script language=javascript src='qdatabase.js'></script>
 <script>
     var no = 0;
-    var suggestString = "駭客後門程式通常是使用主從式架構,一般Server端會常駐於被害者的電腦提供入侵管道#受害者在不知情狀況下下載或安裝了惡意程式,或點選了釣魚郵件,釣魚網站而遭駭客入侵#(1)發動大量封包造成網頁頻寬滿載,網頁速度變慢 (2)發動分散式阻斷服務攻擊DDoS (3)針對通訊協定及特定應用弱點,讓系統服務終止.#駭客發動分散式阻斷服務攻擊(DDoS)癱瘓網站.#隱碼攻擊(SQL injection):利用輸入特殊SQL程式碼,資料庫資料被竊取或是被破壞,系統管理員帳戶被竊竄.#隱碼攻擊(SQL injection):利用輸入特殊SQL程式碼,資料庫資料被竊取或是被破壞,系統管理員帳戶被竊竄.#資訊安全防護:安裝防毒軟體、防火牆,禁止使用USB隨身碟,禁止使用P2P軟體,謹慎開啟信件附加檔案,不瀏覽高風險的網站,定期更新修補弱點#資訊安全防護:安裝防毒軟體、防火牆,禁止使用USB隨身碟,禁止使用P2P軟體,謹慎開啟信件附加檔案,不瀏覽高風險的網站,定期更新修補弱點#資訊安全防護:安裝防毒軟體、防火牆,禁止使用USB隨身碟,禁止使用P2P軟體,謹慎開啟信件附加檔案,不瀏覽高風險的網站,定期更新修補弱點#行動裝置資安威脅徵兆:(1)電池壽命變短 (2)通話經常不尋常中斷 (3)電信費用異常 (4)手機效能變差"
-
-    var suggestItems = suggestString.split("#");
 
 	var TIME_ON=100;
 	var TIME_OFF=-1;
@@ -189,6 +186,7 @@ var cnt=0;  // caculate the counts for guess
 		retest_btn_OFF();
 		COUNTDOWN = TIME_ON;
 		no = 0;
+		cnt=0;
 		window.document.getElementById('sc').innerHTML = '';
 		reset();
 		
