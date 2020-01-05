@@ -54,41 +54,44 @@ var sItems=[];
 var ans = [1, 3, 1, 3, 0, 2, 1, 0, 2, 3];
 
 var prompt1=[];
-prompt1[0]="注意for第一段執行次數";
-prompt1[1]="for第二段之條件";
-prompt1[2]="注意for執行順序";
-prompt1[3]="for第一段只執行1次，for&nbsp;body執行10次";
-prompt1[4]="*注意for第一段執行次數";
-prompt1[5]="*for第二段之條件";
-prompt1[6]="*注意for執行順序，是否為空?圈";
-prompt1[7]="*for第一段只執行1次，for body執行0次";
+prompt1[0]="1注意for第一段執行次數";
+prompt1[1]="1for第二段之條件";
+prompt1[2]="1注意for執行順序";
+prompt1[3]=sItems[0*4+ans[0]];
+prompt1[4]="2*注意for第一段執行次數";
+prompt1[5]="2*for第二段之條件";
+prompt1[6]="2*注意for執行順序，是否為空?圈";
+prompt1[7]=sItems[1*4+ans[1]];
 prompt1[8]="3注意for第一段執行次數";
 prompt1[9]="3for第二段之條件";
 prompt1[10]="3注意for執行順序";
-prompt1[11]="3for第一段只執行1次，for&nbsp;body執行10次";
+prompt1[11]=sItems[2*4+ans[2]];
 prompt1[12]="4*注意for第一段執行次數";
 prompt1[13]="4*for第二段之條件";
 prompt1[14]="4*注意for執行順序，是否為空?圈";
-prompt1[15]="4*for第一段只執行1次，for body執行0次";
+prompt1[15]=sItems[3*4+ans[3]];
+prompt1[16]="5注意for第一段執行次數";
+prompt1[17]="5for第二段之條件";
+prompt1[18]="5注意for執行順序，是否為空?圈";
+prompt1[19]=sItems[4*4+ans[4]];
+prompt1[20]="6注意for第一段執行次數";
+prompt1[21]="6for第二段之條件";
+prompt1[22]="6注意for執行順序";
+prompt1[23]=sItems[5*4+ans[5]];
+prompt1[24]="7*注意for第一段執行次數";
+prompt1[25]="7*for第二段之條件";
+prompt1[26]="7*注意for執行順序，是否為空?圈";
+prompt1[27]=sItems[6*4+ans[6]];
+prompt1[28]="8*注意for第一段執行次數";
+prompt1[29]="8*for第二段之條件";
+prompt1[30]="8*注意for執行順序，是否為空?圈";
+prompt1[31]=sItems[7*4+ans[7]];
+prompt1[32]="9注意for第一段執行次數";
+prompt1[33]="9for第二段之條件";
+prompt1[34]="9注意for執行順序";
+prompt1[35]=sItems[8*4+ans[8]];
+prompt1[36]="10*注意for第一段執行次數";
+prompt1[37]="10*for第二段之條件";
+prompt1[38]="10*注意for執行順序，是否為空?圈";
+prompt1[39]=sItems[9*4+ans[9]];
 
-//int x=19, y=-1;
-//for(int i=1,y++;i<=10;i++) --x;
-//System.out.print(y+","+x);
-//印出結果?
-//注意for第一段執行次數
-//for第二段之條件
-//注意for執行順序
-//for第一段只執行1次，for body執行10次
-
-//int x=8, y=2, i=6;
-//for(i=1,--y;i>=6;--i) --x;
-//System.out.print(i+","+x);
-//印出結果?
-//0,2
-//2,2
-//1,8
-//6,8
-//注意for第一段執行次數
-//for第二段之條件
-//注意for執行順序，是否為空?圈
-//for第一段只執行1次，for body執行0次
